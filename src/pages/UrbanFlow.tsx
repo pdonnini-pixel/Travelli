@@ -1,20 +1,30 @@
 import { motion } from 'framer-motion';
-import { Leaf, Wifi, Bike, ArrowRight } from 'lucide-react';
+import { Leaf, Wifi, Bike, ArrowRight, MapPin, Home, Maximize } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { useLanguage } from '../context/LanguageContext';
+import { useProjects } from '../hooks/useProjects';
+
+const FALLBACK_PROJECTS = [
+  {
+    id: '1',
+    name: 'Il Borgo Impruneta',
+    slug: 'il-borgo-impruneta',
+    location: 'Impruneta (FI)',
+    status: 'In Consegna 2026',
+    description: 'Un complesso residenziale innovativo che unisce la tradizione del borgo toscano con le più moderne tecnologie smart home.',
+    tagline: 'Living Sostenibile',
+    image_url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop',
+    typology: 'Residenziale Misto',
+    surface_area: 'Da 80 a 250 mq',
+  },
+];
 
 export default function UrbanFlow() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { projects: dbProjects, loading, error } = useProjects('urban');
 
-  const projects = [
-    {
-      name: 'IL BORGO IMPRUNETA',
-      location: 'Impruneta (FI)',
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop',
-      statusKey: 'projects.borgo.tagline',
-      descKey: 'projects.borgo.desc',
-    },
-  ];
+  const projects = error || dbProjects.length === 0 ? FALLBACK_PROJECTS : dbProjects;
 
   const features = [
     {
@@ -63,14 +73,16 @@ export default function UrbanFlow() {
             </p>
 
             <div className="pt-8">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center space-x-2 px-8 py-4 border-2 border-[#4682B4] text-[#4682B4] hover:bg-[#4682B4] hover:text-white transition-all duration-300 font-medium tracking-wider"
-              >
-                <span>{t('urban.cta')}</span>
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
+              <Link to="/contact">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center space-x-2 px-8 py-4 border-2 border-[#4682B4] text-[#4682B4] hover:bg-[#4682B4] hover:text-white transition-all duration-300 font-medium tracking-wider"
+                >
+                  <span>{t('urban.cta')}</span>
+                  <ArrowRight className="w-5 h-5" />
+                </motion.div>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -86,58 +98,115 @@ export default function UrbanFlow() {
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              {t('urban.section.title')}
+              {language === 'en' ? 'Contemporary Residences' : 'Residenze Contemporanee'}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               {t('urban.section.subtitle')}
             </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            {projects.map((project, index) => (
-              <motion.div
-                key={project.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300 group"
-              >
-                <div className="relative h-96 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute top-6 right-6 bg-emerald-500 text-white px-6 py-3 text-sm font-bold shadow-lg">
-                    {t(project.statusKey)}
+          {loading ? (
+            <div className="max-w-4xl mx-auto space-y-8">
+              {[1, 2].map((i) => (
+                <div key={i} className="bg-white overflow-hidden shadow-2xl animate-pulse">
+                  <div className="h-96 bg-gray-200" />
+                  <div className="p-10 space-y-6">
+                    <div className="h-10 bg-gray-200 rounded w-3/4" />
+                    <div className="h-6 bg-gray-200 rounded w-1/2" />
+                    <div className="h-24 bg-gray-200 rounded" />
+                    <div className="h-12 bg-gray-200 rounded w-1/3" />
                   </div>
                 </div>
+              ))}
+            </div>
+          ) : projects.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-2xl text-gray-400 italic">
+                {language === 'en' ? 'No projects available at the moment' : 'Nessun progetto disponibile al momento'}
+              </p>
+            </div>
+          ) : (
+            <div className="max-w-4xl mx-auto space-y-8">
+              {projects.map((project, index) => {
+                const projectName = language === 'en' && project.name_en ? project.name_en : project.name;
+                const projectLocation = language === 'en' && project.location_en ? project.location_en : project.location;
+                const projectDescription = language === 'en' && project.description_en ? project.description_en : project.description;
+                const projectTagline = language === 'en' && project.tagline_en ? project.tagline_en : project.tagline;
+                const projectStatus = language === 'en' && project.status_en ? project.status_en : project.status;
 
-                <div className="p-10 space-y-6">
-                  <div>
-                    <h3 className="text-4xl font-bold text-gray-900 mb-3">
-                      {project.name}
-                    </h3>
-                    <p className="text-[#4682B4] font-semibold text-lg tracking-wide">
-                      {project.location}
-                    </p>
-                  </div>
+                return (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="bg-white overflow-hidden shadow-2xl hover:shadow-3xl transition-shadow duration-300 group"
+                  >
+                    <div className="relative h-96 overflow-hidden">
+                      <img
+                        src={project.image_url}
+                        alt={projectName}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      {projectStatus && (
+                        <div className="absolute top-6 right-6 bg-emerald-500 text-white px-6 py-3 text-sm font-bold shadow-lg">
+                          {projectStatus}
+                        </div>
+                      )}
+                      {projectTagline && (
+                        <div className="absolute top-6 left-6 bg-[#4682B4] text-white px-4 py-2 text-sm font-semibold shadow-lg">
+                          {projectTagline}
+                        </div>
+                      )}
+                    </div>
 
-                  <p className="text-xl text-gray-600 leading-relaxed">
-                    {t(project.descKey)}
-                  </p>
+                    <div className="p-10 space-y-6">
+                      <div>
+                        <h3 className="text-4xl font-bold text-gray-900 mb-3">
+                          {projectName}
+                        </h3>
+                        <div className="flex items-center space-x-2 text-[#4682B4] font-semibold text-lg">
+                          <MapPin className="w-5 h-5" />
+                          <span className="tracking-wide">{projectLocation}</span>
+                        </div>
+                      </div>
 
-                  <div className="pt-6">
-                    <button className="inline-flex items-center space-x-3 px-8 py-4 bg-[#4682B4] text-white hover:bg-[#365F8C] transition-all duration-300 font-semibold tracking-wider shadow-lg hover:shadow-xl">
-                      <span>{t('urban.project.cta')}</span>
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                      <p className="text-xl text-gray-600 leading-relaxed">
+                        {projectDescription}
+                      </p>
+
+                      <div className="flex flex-wrap items-center gap-6 text-gray-500">
+                        {project.typology && (
+                          <div className="flex items-center space-x-2">
+                            <Home className="w-5 h-5" />
+                            <span className="text-sm font-medium">{project.typology}</span>
+                          </div>
+                        )}
+                        {project.surface_area && (
+                          <div className="flex items-center space-x-2">
+                            <Maximize className="w-5 h-5" />
+                            <span className="text-sm font-medium">{project.surface_area}</span>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="pt-6">
+                        <Link
+                          to="/contact"
+                          state={{ project: projectName }}
+                          className="inline-flex items-center space-x-3 px-8 py-4 bg-[#4682B4] text-white hover:bg-[#365F8C] transition-all duration-300 font-semibold tracking-wider shadow-lg hover:shadow-xl"
+                        >
+                          <span>{language === 'en' ? 'Request Information' : 'Richiedi Informazioni'}</span>
+                          <ArrowRight className="w-5 h-5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
 
@@ -191,10 +260,13 @@ export default function UrbanFlow() {
             transition={{ duration: 0.6 }}
             className="mt-16 text-center"
           >
-            <button className="inline-flex items-center space-x-3 px-10 py-4 border-2 border-[#4682B4] text-[#4682B4] hover:bg-[#4682B4] hover:text-white transition-all duration-300 text-lg font-semibold tracking-wider">
+            <Link
+              to="/contact"
+              className="inline-flex items-center space-x-3 px-10 py-4 border-2 border-[#4682B4] text-[#4682B4] hover:bg-[#4682B4] hover:text-white transition-all duration-300 text-lg font-semibold tracking-wider"
+            >
               <span>{t('urban.visit.cta')}</span>
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </Link>
           </motion.div>
         </div>
       </section>
