@@ -3,15 +3,43 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, Cpu } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { usePageContent, useProjects } from '../hooks/useProjects';
 import { Link } from 'react-router-dom';
 
 export default function DualCollection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const { t } = useLanguage();
+  const { language } = useLanguage();
+  const { content, loading: contentLoading } = usePageContent('home');
+  const { projects, loading: projectsLoading } = useProjects();
+
+  const getContent = (key: string, fallback: string) => {
+    const item = content[key];
+    if (!item) return fallback;
+    return language === 'en' && item.content_en ? item.content_en : item.content;
+  };
+
+  const prestigeProject = projects.find(p => p.collection === 'prestige' && p.is_featured);
+  const urbanProject = projects.find(p => p.collection === 'urban' && p.is_featured);
+
+  const prestigeImage = prestigeProject?.image_url || 'https://i.postimg.cc/K8fqs7DT/Travelli_home_signature.jpg';
+  const urbanImage = urbanProject?.image_url || 'https://i.postimg.cc/c17Qmxmx/Travelli_Rosai_Urban.jpg';
+
+  if (contentLoading || projectsLoading) {
+    return (
+      <section className="grid md:grid-cols-2 min-h-[60vh] md:min-h-screen bg-[#1A1A1A]">
+        <div className="flex items-center justify-center">
+          <div className="w-12 h-12 border-4 border-[#A68966]/30 border-t-[#A68966] rounded-full animate-spin" />
+        </div>
+        <div className="flex items-center justify-center bg-[#F2F2F2]">
+          <div className="w-12 h-12 border-4 border-[#A68966]/30 border-t-[#A68966] rounded-full animate-spin" />
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section ref={ref} className="grid md:grid-cols-2 min-h-screen">
+    <section ref={ref} className="grid md:grid-cols-2 min-h-[60vh] md:min-h-screen">
       <motion.div
         id="signature"
         initial={{ opacity: 0, x: -50 }}
@@ -22,8 +50,7 @@ export default function DualCollection() {
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
           style={{
-            backgroundImage:
-              'url(https://i.postimg.cc/K8fqs7DT/Travelli_home_signature.jpg)',
+            backgroundImage: `url(${prestigeImage})`,
           }}
         >
           <div className="absolute inset-0 bg-black/40" />
@@ -32,22 +59,22 @@ export default function DualCollection() {
         <div className="relative h-full flex flex-col justify-center px-12 lg:px-20 py-24">
           <div className="max-w-lg">
             <h3 className="text-5xl lg:text-6xl font-bold text-white mb-6 whitespace-pre-line" style={{ fontFamily: "'Playfair Display', serif" }}>
-              {t('collection.signature.title')}
+              {getContent('signature_title', 'Prestige\nCollection')}
             </h3>
             <p className="text-xl text-white/80 mb-6 leading-relaxed">
-              {t('collection.signature.desc')}
+              {getContent('signature_desc', 'Lusso senza compromessi, dove ogni dettaglio è curato per offrire un\'esperienza abitativa esclusiva')}
             </p>
             <div className="flex items-center space-x-2 mb-8 px-4 py-2 bg-[#A68966]/20 border border-[#A68966]/50 rounded-full w-fit backdrop-blur-sm">
               <Cpu className="w-4 h-4 text-[#A68966]" />
               <span className="text-[#A68966] text-sm font-semibold">
-                {t('collection.techBadge')}
+                {getContent('tech_badge', 'AI-Enhanced Living')}
               </span>
             </div>
             <Link
               to="/signature"
               className="bg-bronze-metallic bg-bronze-metallic-hover text-white px-8 py-4 transition-all duration-300 flex items-center space-x-2 group/btn w-fit"
             >
-              <span className="tracking-wider uppercase text-sm">{t('collection.signature.cta')}</span>
+              <span className="tracking-wider uppercase text-sm">{getContent('signature_cta', 'Scopri Prestige')}</span>
               <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -64,8 +91,7 @@ export default function DualCollection() {
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
           style={{
-            backgroundImage:
-              'url(https://i.postimg.cc/c17Qmxmx/Travelli_Rosai_Urban.jpg)',
+            backgroundImage: `url(${urbanImage})`,
           }}
         >
           <div className="absolute inset-0 bg-white/30" />
@@ -74,22 +100,22 @@ export default function DualCollection() {
         <div className="relative h-full flex flex-col justify-center px-12 lg:px-20 py-24">
           <div className="max-w-lg">
             <h3 className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-6 whitespace-pre-line" style={{ fontFamily: "'Playfair Display', serif" }}>
-              {t('collection.urban.title')}
+              {getContent('urban_title', 'Urban\nFlow')}
             </h3>
             <p className="text-xl text-gray-800 mb-6 leading-relaxed">
-              {t('collection.urban.desc')}
+              {getContent('urban_desc', 'Vita contemporanea nel cuore della città, progettata per chi cerca dinamismo e comfort')}
             </p>
             <div className="flex items-center space-x-2 mb-8 px-4 py-2 bg-[#A68966]/10 border border-[#A68966]/60 rounded-full w-fit backdrop-blur-sm">
               <Cpu className="w-4 h-4 text-[#A68966]" />
               <span className="text-[#A68966] text-sm font-semibold">
-                {t('collection.techBadge')}
+                {getContent('tech_badge', 'AI-Enhanced Living')}
               </span>
             </div>
             <Link
               to="/urban"
               className="border-2 border-[#1A1A1A] text-[#1A1A1A] px-8 py-4 hover:bg-[#1A1A1A] hover:text-white transition-all duration-300 flex items-center space-x-2 group/btn w-fit"
             >
-              <span className="tracking-wider uppercase text-sm">{t('collection.urban.cta')}</span>
+              <span className="tracking-wider uppercase text-sm">{getContent('urban_cta', 'Scopri Urban Flow')}</span>
               <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
             </Link>
           </div>
