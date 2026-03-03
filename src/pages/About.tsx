@@ -277,6 +277,145 @@ export default function About() {
             <div className="flex items-center justify-center mb-6">
               <div className="h-px w-16 bg-[#A68966] mr-4" />
               <span className="text-sm tracking-widest uppercase text-[#A68966]">
+                {t('method.team.label')}
+              </span>
+              <div className="h-px w-16 bg-[#A68966] ml-4" />
+            </div>
+            <h2
+              className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-6"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              {t('method.team.title')}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              {t('method.team.subtitle')}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-6 rounded-lg border border-gray-300 hover:border-[#A68966]/50 transition-all hover:shadow-lg text-center"
+            >
+              <div className="w-20 h-20 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
+                <Users className="w-10 h-10 text-gray-500" />
+              </div>
+              <h3 className="text-lg font-bold text-[#1A1A1A] mb-2">
+                {t('method.team.coo.title')}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {t('method.team.coo.desc')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-white p-6 rounded-lg border border-gray-300 hover:border-[#A68966]/50 transition-all hover:shadow-lg text-center"
+            >
+              <div className="w-20 h-20 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
+                <Users className="w-10 h-10 text-gray-500" />
+              </div>
+              <h3 className="text-lg font-bold text-[#1A1A1A] mb-2">
+                {t('method.team.pm.title')}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {t('method.team.pm.desc')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white p-6 rounded-lg border border-gray-300 hover:border-[#A68966]/50 transition-all hover:shadow-lg text-center"
+            >
+              <div className="w-20 h-20 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
+                <Users className="w-10 h-10 text-gray-500" />
+              </div>
+              <h3 className="text-lg font-bold text-[#1A1A1A] mb-2">
+                {t('method.team.sales.title')}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {t('method.team.sales.desc')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-white p-6 rounded-lg border border-gray-300 hover:border-[#A68966]/50 transition-all hover:shadow-lg text-center"
+            >
+              <div className="w-20 h-20 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
+                <Users className="w-10 h-10 text-gray-500" />
+              </div>
+              <h3 className="text-lg font-bold text-[#1A1A1A] mb-2">
+                {t('method.team.procurement.title')}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {t('method.team.procurement.desc')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-white p-6 rounded-lg border border-gray-300 hover:border-[#A68966]/50 transition-all hover:shadow-lg text-center"
+            >
+              <div className="w-20 h-20 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
+                <Users className="w-10 h-10 text-gray-500" />
+              </div>
+              <h3 className="text-lg font-bold text-[#1A1A1A] mb-2">
+                {t('method.team.design.title')}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {t('method.team.design.desc')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="bg-white p-6 rounded-lg border border-gray-300 hover:border-[#A68966]/50 transition-all hover:shadow-lg text-center"
+            >
+              <div className="w-20 h-20 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
+                <Users className="w-10 h-10 text-gray-500" />
+              </div>
+              <h3 className="text-lg font-bold text-[#1A1A1A] mb-2">
+                {t('method.team.safety.title')}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {t('method.team.safety.desc')}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 lg:px-12 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="flex items-center justify-center mb-6">
+              <div className="h-px w-16 bg-[#A68966] mr-4" />
+              <span className="text-sm tracking-widest uppercase text-[#A68966]">
                 {t('method.structure.label')}
               </span>
               <div className="h-px w-16 bg-[#A68966] ml-4" />
@@ -376,7 +515,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12 bg-gray-50">
+      <section className="py-24 px-6 lg:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
