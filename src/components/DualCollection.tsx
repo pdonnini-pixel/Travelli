@@ -22,11 +22,15 @@ export default function DualCollection() {
   const prestigeProject = projects.find(p => p.collection === 'prestige' && p.is_featured);
   const urbanProject = projects.find(p => p.collection === 'urban' && p.is_featured);
 
-  const prestigeImage = prestigeProject?.image_url || 'https://i.postimg.cc/K8fqs7DT/Travelli_home_signature.jpg';
-  const urbanImage = urbanProject?.image_url || 'https://i.postimg.cc/c17Qmxmx/Travelli_Rosai_Urban.jpg';
+  const prestigeImage = prestigeProject?.image_url || 'https://i.postimg.cc/D0pKqVpG/il-pratello.jpg';
+  const urbanImage = urbanProject?.image_url || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop';
+
+  if (projectsLoading || contentLoading) {
+    return null;
+  }
 
   return (
-    <section ref={ref} className="grid md:grid-cols-2 min-h-[60vh] md:min-h-screen">
+    <section ref={ref} className="grid md:grid-cols-2 min-h-screen">
       <motion.div
         id="signature"
         initial={{ opacity: 0, x: -50 }}
