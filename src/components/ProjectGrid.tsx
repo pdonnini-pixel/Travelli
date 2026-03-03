@@ -52,7 +52,7 @@ export default function ProjectGrid() {
   const { t } = useLanguage();
 
   return (
-    <section ref={ref} className="py-32 px-6 bg-white">
+    <section ref={ref} className="py-16 md:py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

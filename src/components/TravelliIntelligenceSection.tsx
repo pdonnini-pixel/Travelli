@@ -6,7 +6,7 @@ export default function TravelliIntelligenceSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative py-32 px-6 lg:px-12 overflow-hidden bg-gradient-to-br from-[#0A0F1C] via-[#0D1424] to-[#111827]">
+    <section className="relative py-16 md:py-32 px-6 lg:px-12 overflow-hidden bg-gradient-to-br from-[#0A0F1C] via-[#0D1424] to-[#111827]">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{

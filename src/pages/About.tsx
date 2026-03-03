@@ -8,7 +8,7 @@ export default function About() {
 
   return (
     <div className="bg-white min-h-screen">
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -38,7 +38,7 @@ export default function About() {
         </motion.div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12 bg-white">
+      <section className="py-12 md:py-24 px-6 lg:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -167,7 +167,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-12 md:py-24 px-6 lg:px-12 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -265,7 +265,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12 bg-white">
+      <section className="py-12 md:py-24 px-6 lg:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -404,7 +404,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12 bg-gray-50">
+      <section className="py-12 md:py-24 px-6 lg:px-12 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -515,7 +515,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12 bg-white">
+      <section className="py-12 md:py-24 px-6 lg:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -579,7 +579,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="relative py-32 px-6 lg:px-12 overflow-hidden">
+      <section className="relative py-16 md:py-32 px-6 lg:px-12 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{

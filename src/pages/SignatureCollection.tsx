@@ -40,7 +40,7 @@ export default function SignatureCollection() {
 
   return (
     <div className="bg-[#1A1A1A] min-h-screen">
-      <section className="relative h-screen w-full overflow-hidden">
+      <section className="relative min-h-[60vh] md:h-screen w-full overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -74,7 +74,7 @@ export default function SignatureCollection() {
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12">
+      <section className="py-12 md:py-24 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}

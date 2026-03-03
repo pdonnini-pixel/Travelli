@@ -1,12 +1,30 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Cpu, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { usePageContent } from '../hooks/useProjects';
 
 export default function Hero() {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
+  const { content, loading } = usePageContent('home');
+
+  const getContent = (key: string, fallback: string) => {
+    const item = content[key];
+    if (!item) return fallback;
+    return language === 'en' && item.content_en ? item.content_en : item.content;
+  };
+
+  if (loading) {
+    return (
+      <section id="home" className="relative min-h-[60vh] md:h-screen w-full overflow-hidden bg-[#1A1A1A]">
+        <div className="relative h-full flex items-center justify-center">
+          <div className="w-12 h-12 border-4 border-[#A68966]/30 border-t-[#A68966] rounded-full animate-spin" />
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section id="home" className="relative h-screen w-full overflow-hidden">
+    <section id="home" className="relative min-h-[60vh] md:h-screen w-full overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -25,7 +43,7 @@ export default function Hero() {
           className="text-4xl md:text-5xl lg:text-6xl text-white/95 italic font-light mb-8"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          {t('hero.title')}
+          {getContent('hero_title', 'Dove Innovazione e Tradizione si Incontrano')}
         </motion.h1>
 
         <motion.div
@@ -36,7 +54,7 @@ export default function Hero() {
         >
           <Cpu className="w-5 h-5 text-[#A68966]" />
           <span className="text-[#A68966] font-semibold tracking-wider text-sm uppercase">
-            {t('hero.techBadge')}
+            {getContent('hero_badge', 'Powered by Travelli Intelligence')}
           </span>
           <Sparkles className="w-5 h-5 text-[#A68966]" />
         </motion.div>
@@ -48,7 +66,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.9 }}
           className="group border-2 border-white/50 text-white px-8 py-4 hover:border-[#A68966] hover:text-[#A68966] transition-all duration-300 tracking-widest text-sm uppercase"
         >
-          {t('hero.cta')}
+          {getContent('hero_cta', 'Esplora i Progetti')}
         </motion.a>
 
         <motion.div

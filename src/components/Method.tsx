@@ -33,7 +33,7 @@ export default function Method() {
   const { t } = useLanguage();
 
   return (
-    <section id="metodo" ref={ref} className="py-32 px-6 bg-[#1A1A1A]">
+    <section id="metodo" ref={ref} className="py-16 md:py-32 px-6 bg-[#1A1A1A]">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

@@ -46,7 +46,7 @@ export default function UrbanFlow() {
 
   return (
     <div className="bg-white min-h-screen">
-      <section className="relative h-screen w-full overflow-hidden">
+      <section className="relative min-h-[60vh] md:h-screen w-full overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -88,7 +88,7 @@ export default function UrbanFlow() {
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12 bg-[#F2F2F2]">
+      <section className="py-12 md:py-24 px-6 lg:px-12 bg-[#F2F2F2]">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -210,7 +210,7 @@ export default function UrbanFlow() {
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12 bg-white">
+      <section className="py-12 md:py-24 px-6 lg:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

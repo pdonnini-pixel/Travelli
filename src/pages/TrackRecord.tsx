@@ -108,7 +108,7 @@ export default function TrackRecord() {
         onClose={() => setSelectedProject(null)}
       />
 
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -138,7 +138,7 @@ export default function TrackRecord() {
         </motion.div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-12 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
