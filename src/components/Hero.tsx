@@ -16,7 +16,7 @@ export default function Hero() {
   if (loading) {
     return (
       <section id="home" className="relative min-h-[60vh] md:h-screen w-full overflow-hidden bg-[#1A1A1A]">
-        <div className="relative h-full flex items-center justify-center">
+        <div className="relative min-h-[60vh] md:h-screen flex items-center justify-center">
           <div className="w-12 h-12 border-4 border-[#A68966]/30 border-t-[#A68966] rounded-full animate-spin" />
         </div>
       </section>
@@ -35,7 +35,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
       </div>
 
-      <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
+      <div className="relative min-h-[60vh] md:h-screen flex flex-col items-center justify-center text-center px-6 py-12">
         <motion.h1
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
