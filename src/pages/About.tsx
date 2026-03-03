@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Building2, Users, Award, TrendingUp, Shield, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import Footer from '../components/Footer';
 
@@ -6,67 +7,260 @@ export default function About() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A]">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="pt-32 pb-20"
-      >
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-light text-white mb-12 tracking-wide"
+    <div className="bg-white min-h-screen">
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1448630360428-65456885c650?w=1600&q=80)',
+            filter: 'grayscale(40%)',
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="relative z-10 text-center px-6 max-w-5xl"
+        >
+          <h1
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+            style={{ fontFamily: "'Playfair Display', serif" }}
           >
             {t('about.title')}
-          </motion.h1>
+          </h1>
+          <div className="h-1 w-32 bg-[#A68966] mx-auto mb-8" />
+          <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed">
+            {t('about.intro')}
+          </p>
+        </motion.div>
+      </section>
+
+      <section className="py-24 px-6 lg:px-12 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid md:grid-cols-2 gap-12 items-center mb-24"
+          >
+            <div>
+              <div className="flex items-center mb-6">
+                <div className="h-px w-12 bg-[#A68966] mr-4" />
+                <span className="text-sm tracking-widest uppercase text-[#A68966]">
+                  LA NOSTRA MISSIONE
+                </span>
+              </div>
+              <h2
+                className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-6"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                Costruiamo Valore Duraturo
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                {t('about.mission')}
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {t('about.approach')}
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#A68966]/20 to-transparent rounded-lg" />
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+                alt="Travelli Development"
+                className="relative rounded-lg shadow-2xl w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-8 text-white/80 text-lg leading-relaxed"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
           >
-            <p>
-              {t('about.intro')}
-            </p>
+            <h3 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-4">
+              {t('about.valuesTitle')}
+            </h3>
+            <div className="h-1 w-24 bg-[#A68966] mx-auto" />
+          </motion.div>
 
-            <p>
-              {t('about.mission')}
-            </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-8 rounded-xl border-2 border-gray-200 text-center hover:border-[#A68966]/50 transition-all hover:shadow-lg"
+            >
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#A68966] to-[#8B7355] rounded-full flex items-center justify-center">
+                <Award className="w-10 h-10 text-white" />
+              </div>
+              <h4 className="text-lg font-bold text-[#1A1A1A] mb-3">
+                Eccellenza
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                {t('about.value1')}
+              </p>
+            </motion.div>
 
-            <p>
-              {t('about.approach')}
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-white p-8 rounded-xl border-2 border-gray-200 text-center hover:border-[#A68966]/50 transition-all hover:shadow-lg"
+            >
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#A68966] to-[#8B7355] rounded-full flex items-center justify-center">
+                <Sparkles className="w-10 h-10 text-white" />
+              </div>
+              <h4 className="text-lg font-bold text-[#1A1A1A] mb-3">
+                Innovazione
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                {t('about.value2')}
+              </p>
+            </motion.div>
 
-            <div className="pt-12">
-              <h2 className="text-3xl font-light text-[#A68966] mb-6">
-                {t('about.valuesTitle')}
-              </h2>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <span className="text-[#A68966] mr-3">•</span>
-                  <span>{t('about.value1')}</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#A68966] mr-3">•</span>
-                  <span>{t('about.value2')}</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#A68966] mr-3">•</span>
-                  <span>{t('about.value3')}</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#A68966] mr-3">•</span>
-                  <span>{t('about.value4')}</span>
-                </li>
-              </ul>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white p-8 rounded-xl border-2 border-gray-200 text-center hover:border-[#A68966]/50 transition-all hover:shadow-lg"
+            >
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#A68966] to-[#8B7355] rounded-full flex items-center justify-center">
+                <Shield className="w-10 h-10 text-white" />
+              </div>
+              <h4 className="text-lg font-bold text-[#1A1A1A] mb-3">
+                Trasparenza
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                {t('about.value3')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-white p-8 rounded-xl border-2 border-gray-200 text-center hover:border-[#A68966]/50 transition-all hover:shadow-lg"
+            >
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#A68966] to-[#8B7355] rounded-full flex items-center justify-center">
+                <TrendingUp className="w-10 h-10 text-white" />
+              </div>
+              <h4 className="text-lg font-bold text-[#1A1A1A] mb-3">
+                Sostenibilità
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                {t('about.value4')}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 lg:px-12 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="flex items-center justify-center mb-6">
+              <div className="h-px w-16 bg-[#A68966] mr-4" />
+              <span className="text-sm tracking-widest uppercase text-[#A68966]">
+                I NUMERI
+              </span>
+              <div className="h-px w-16 bg-[#A68966] ml-4" />
             </div>
+            <h2
+              className="text-4xl md:text-5xl font-bold text-[#1A1A1A] mb-6"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Travelli in Cifre
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-8 rounded-xl shadow-lg text-center"
+            >
+              <div className="text-5xl font-bold text-[#A68966] mb-4">30+</div>
+              <div className="text-xl font-semibold text-[#1A1A1A] mb-2">Anni di Esperienza</div>
+              <p className="text-gray-600">Dal 1994 nel settore immobiliare</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-white p-8 rounded-xl shadow-lg text-center"
+            >
+              <div className="text-5xl font-bold text-[#A68966] mb-4">50</div>
+              <div className="text-xl font-semibold text-[#1A1A1A] mb-2">Professionisti</div>
+              <p className="text-gray-600">Team interno dedicato</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white p-8 rounded-xl shadow-lg text-center"
+            >
+              <div className="text-5xl font-bold text-[#A68966] mb-4">100%</div>
+              <div className="text-xl font-semibold text-[#1A1A1A] mb-2">Consegne in Tempo</div>
+              <p className="text-gray-600">Garanzia di qualità e puntualità</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-32 px-6 lg:px-12 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80)',
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A1A]/95 to-[#1A1A1A]/90" />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Costruiamo insieme il tuo futuro
+            </h2>
+            <p className="text-xl text-white/80 mb-8 leading-relaxed">
+              Dalla tradizione artigianale all'innovazione tecnologica, ogni progetto Travelli è un'opera d'eccellenza progettata per durare nel tempo.
+            </p>
           </motion.div>
         </div>
-      </motion.div>
+      </section>
+
       <Footer />
     </div>
   );
