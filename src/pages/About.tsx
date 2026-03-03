@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Building2, Users, Award, TrendingUp, Shield, Sparkles } from 'lucide-react';
+import { Building2, Users, Award, TrendingUp, Shield, Sparkles, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import Footer from '../components/Footer';
 
@@ -266,6 +266,117 @@ export default function About() {
       </section>
 
       <section className="py-24 px-6 lg:px-12 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="flex items-center justify-center mb-6">
+              <div className="h-px w-16 bg-[#A68966] mr-4" />
+              <span className="text-sm tracking-widest uppercase text-[#A68966]">
+                {t('method.structure.label')}
+              </span>
+              <div className="h-px w-16 bg-[#A68966] ml-4" />
+            </div>
+            <h2
+              className="text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-6"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              {t('method.structure.title')}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              {t('method.structure.subtitle')}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="grid md:grid-cols-2 gap-12 mb-16"
+          >
+            <div>
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                {t('method.structure.desc1')}
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {t('method.structure.desc2')}
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#A68966]/20 to-transparent rounded-lg" />
+              <img
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+                alt="Team at work"
+                className="relative rounded-lg shadow-2xl w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-8 rounded-xl border-2 border-gray-200 text-center hover:border-[#A68966]/50 transition-colors"
+            >
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#A68966] to-[#8B7355] rounded-full flex items-center justify-center">
+                <CheckCircle2 className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">
+                {t('method.structure.benefit1')}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {t('method.structure.benefit1.desc')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-white p-8 rounded-xl border-2 border-gray-200 text-center hover:border-[#A68966]/50 transition-colors"
+            >
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#A68966] to-[#8B7355] rounded-full flex items-center justify-center">
+                <TrendingUp className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">
+                {t('method.structure.benefit2')}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {t('method.structure.benefit2.desc')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white p-8 rounded-xl border-2 border-gray-200 text-center hover:border-[#A68966]/50 transition-colors"
+            >
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#A68966] to-[#8B7355] rounded-full flex items-center justify-center">
+                <Shield className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">
+                {t('method.structure.benefit3')}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {t('method.structure.benefit3.desc')}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 lg:px-12 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
