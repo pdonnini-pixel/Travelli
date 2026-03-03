@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, Cpu } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { Link } from 'react-router-dom';
 
 export default function DualCollection() {
   const ref = useRef(null);
@@ -42,10 +43,13 @@ export default function DualCollection() {
                 {t('collection.techBadge')}
               </span>
             </div>
-            <button className="bg-bronze-metallic bg-bronze-metallic-hover text-white px-8 py-4 transition-all duration-300 flex items-center space-x-2 group/btn">
+            <Link
+              to="/signature"
+              className="bg-bronze-metallic bg-bronze-metallic-hover text-white px-8 py-4 transition-all duration-300 flex items-center space-x-2 group/btn w-fit"
+            >
               <span className="tracking-wider uppercase text-sm">{t('collection.signature.cta')}</span>
               <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
         </div>
       </motion.div>
@@ -81,10 +85,13 @@ export default function DualCollection() {
                 {t('collection.techBadge')}
               </span>
             </div>
-            <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] px-8 py-4 hover:bg-[#1A1A1A] hover:text-white transition-all duration-300 flex items-center space-x-2 group/btn">
+            <Link
+              to="/urban"
+              className="border-2 border-[#1A1A1A] text-[#1A1A1A] px-8 py-4 hover:bg-[#1A1A1A] hover:text-white transition-all duration-300 flex items-center space-x-2 group/btn w-fit"
+            >
               <span className="tracking-wider uppercase text-sm">{t('collection.urban.cta')}</span>
               <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
         </div>
       </motion.div>

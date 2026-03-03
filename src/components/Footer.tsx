@@ -83,17 +83,17 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#signature" className="text-white/60 hover:text-[#A68966] transition-colors">
+                <Link to="/signature" className="text-white/60 hover:text-[#A68966] transition-colors">
                   {t('nav.signature')}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#urban" className="text-white/60 hover:text-[#A68966] transition-colors">
+                <Link to="/urban" className="text-white/60 hover:text-[#A68966] transition-colors">
                   {t('nav.urban')}
-                </a>
+                </Link>
               </li>
               <li>
-                <Link to="/realizzazioni" className="text-white/60 hover:text-[#A68966] transition-colors">
+                <Link to="/track-record" className="text-white/60 hover:text-[#A68966] transition-colors">
                   {t('nav.trackrecord')}
                 </Link>
               </li>
@@ -109,7 +109,12 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-6 tracking-wide uppercase text-[#A68966]">{t('footer.company')}</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/metodo" className="text-white/60 hover:text-[#A68966] transition-colors">
+                <Link to="/method" className="text-white/60 hover:text-[#A68966] transition-colors">
+                  {t('nav.method')}
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-white/60 hover:text-[#A68966] transition-colors">
                   {t('footer.about')}
                 </Link>
               </li>
