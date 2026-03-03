@@ -16,7 +16,8 @@ const translations = {
     'nav.urban': 'LIVING',
     'nav.trackrecord': 'REALIZZAZIONI',
     'nav.intelligence': 'INTELLIGENCE',
-    'nav.method': 'CHI SIAMO',
+    'nav.method': 'METODO',
+    'nav.about': 'CHI SIAMO',
     'nav.contact': 'Contatti',
 
     'hero.title': 'Costruiamo Valore, Progettiamo il Domani',
@@ -246,13 +247,24 @@ const translations = {
     'trackrecord.filter.residenziale': 'RESIDENZIALE',
     'trackrecord.category.restauro': 'Restauro Storico',
     'trackrecord.category.residenziale': 'Nuova Costruzione',
+
+    'about.title': 'Chi Siamo',
+    'about.intro': 'Travelli è un Developer immobiliare integrato con sede in Toscana. Dal 1994 sviluppiamo progetti residenziali di alta qualità, combinando tradizione artigianale e innovazione tecnologica.',
+    'about.mission': 'La nostra missione è creare spazi abitativi che durino nel tempo, dove ogni dettaglio è studiato per garantire comfort, efficienza e valore duraturo.',
+    'about.approach': 'Con un team di 50 professionisti interni e una gestione diretta di ogni fase del progetto, garantiamo tempi certi, qualità costante e un servizio personalizzato dalla progettazione alla consegna delle chiavi.',
+    'about.valuesTitle': 'I Nostri Valori',
+    'about.value1': 'Eccellenza costruttiva e attenzione al dettaglio in ogni progetto',
+    'about.value2': 'Integrazione nativa di tecnologie smart in ogni residenza',
+    'about.value3': 'Trasparenza e comunicazione diretta con i clienti',
+    'about.value4': 'Sostenibilità ambientale e rispetto del territorio',
   },
   EN: {
     'nav.signature': 'PRESTIGE',
     'nav.urban': 'LIVING',
     'nav.trackrecord': 'REALIZZAZIONI',
     'nav.intelligence': 'INTELLIGENCE',
-    'nav.method': 'ABOUT US',
+    'nav.method': 'METHOD',
+    'nav.about': 'ABOUT US',
     'nav.contact': 'Contact',
 
     'hero.title': 'Building Value, Designing Tomorrow',
@@ -482,6 +494,16 @@ const translations = {
     'trackrecord.filter.residenziale': 'RESIDENTIAL',
     'trackrecord.category.restauro': 'Historical Restoration',
     'trackrecord.category.residenziale': 'New Construction',
+
+    'about.title': 'About Us',
+    'about.intro': 'Travelli is an integrated real estate developer based in Tuscany. Since 1994, we have been developing high-quality residential projects, combining traditional craftsmanship with technological innovation.',
+    'about.mission': 'Our mission is to create living spaces that last over time, where every detail is designed to ensure comfort, efficiency, and lasting value.',
+    'about.approach': 'With a team of 50 in-house professionals and direct management of every project phase, we guarantee certain timelines, consistent quality, and personalized service from design to key delivery.',
+    'about.valuesTitle': 'Our Values',
+    'about.value1': 'Construction excellence and attention to detail in every project',
+    'about.value2': 'Native integration of smart technologies in every residence',
+    'about.value3': 'Transparency and direct communication with clients',
+    'about.value4': 'Environmental sustainability and respect for the territory',
   },
 };
 

@@ -56,6 +56,7 @@ export default function Navbar() {
     { name: t('nav.trackrecord'), href: '/track-record' },
     { name: t('nav.intelligence'), href: '/intelligence', highlight: true },
     { name: t('nav.method'), href: '/method' },
+    { name: t('nav.about'), href: '/about' },
   ];
 
   return (

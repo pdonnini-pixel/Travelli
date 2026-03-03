@@ -7,6 +7,7 @@ import UrbanFlow from './pages/UrbanFlow';
 import TrackRecord from './pages/TrackRecord';
 import Method from './pages/Method';
 import Intelligence from './pages/Intelligence';
+import About from './pages/About';
 import TravelliIntelligence from './components/TravelliIntelligence';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/track-record" element={<TrackRecord />} />
           <Route path="/intelligence" element={<Intelligence />} />
           <Route path="/method" element={<Method />} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Home />} />
         </Routes>
         <TravelliIntelligence />
