@@ -1,10 +1,37 @@
+import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, Instagram, Facebook, ArrowRight } from 'lucide-react';
+import { Mail, Linkedin, Instagram, Facebook, ArrowRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { useSubmitNewsletter } from '../hooks/useProjects';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const { submitNewsletter, loading, success, isDuplicate } = useSubmitNewsletter();
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setEmailError('');
+
+    if (!email.trim()) {
+      setEmailError(language === 'it' ? 'Inserisci una email' : 'Please enter an email');
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setEmailError(language === 'it' ? 'Email non valida' : 'Invalid email address');
+      return;
+    }
+
+    await submitNewsletter(email.toLowerCase().trim());
+  };
 
   return (
     <footer id="footer" className="bg-[#0D0D0D] text-white">
@@ -136,21 +163,61 @@ export default function Footer() {
             <p className="text-white/60 mb-4 text-sm">
               {t('footer.insights')}
             </p>
-            <form className="flex flex-col space-y-3">
-              <input
-                type="email"
-                placeholder="Email"
-                className="bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#A68966] transition-colors"
-              />
-              <button
-                type="submit"
-                className="bg-bronze-metallic bg-bronze-metallic-hover text-white px-4 py-3 transition-colors flex items-center justify-center space-x-2 group"
+            {success ? (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-green-500/10 border border-green-500/30 px-4 py-4 flex items-center space-x-3"
               >
-                <Mail className="w-4 h-4" />
-                <span className="text-sm tracking-wider uppercase">{t('footer.subscribe')}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </form>
+                <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                <span className="text-green-500 text-sm">
+                  {language === 'it' ? 'Iscrizione confermata!' : 'Successfully subscribed!'}
+                </span>
+              </motion.div>
+            ) : isDuplicate ? (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-amber-500/10 border border-amber-500/30 px-4 py-4 flex items-center space-x-3"
+              >
+                <Mail className="w-5 h-5 text-amber-500 flex-shrink-0" />
+                <span className="text-amber-500 text-sm">
+                  {language === 'it' ? 'Questa email è già iscritta' : 'This email is already subscribed'}
+                </span>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setEmailError('');
+                    }}
+                    disabled={loading}
+                    className={`w-full bg-white/10 border ${
+                      emailError ? 'border-red-500' : 'border-white/20'
+                    } px-4 py-3 text-white placeholder-white/40 focus:outline-none focus:border-[#A68966] transition-colors disabled:opacity-50`}
+                  />
+                  {emailError && (
+                    <p className="text-red-500 text-xs mt-1">{emailError}</p>
+                  )}
+                </div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="bg-bronze-metallic bg-bronze-metallic-hover text-white px-4 py-3 transition-colors flex items-center justify-center space-x-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span className="text-sm tracking-wider uppercase">
+                    {loading ? (language === 'it' ? 'Invio...' : 'Sending...') : t('footer.subscribe')}
+                  </span>
+                  {!loading && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
+                </button>
+              </form>
+            )}
           </div>
         </div>
 
