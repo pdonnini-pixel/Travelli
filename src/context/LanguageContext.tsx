@@ -153,13 +153,13 @@ const translations = {
     'footer.legal': 'Note Legali',
     'footer.vat': 'P.IVA',
 
-    'signature.title': 'TRAVELLI PRESTIGE',
+    'signature.title': 'PRESTIGE',
     'signature.subtitle': "L'apice dell'abitare.",
     'signature.intro': "La collezione Prestige rappresenta l'eccellenza assoluta nel real estate di lusso. Progetti iconici che ridefiniscono il concetto di abitare esclusivo.",
     'signature.cta': 'Richiedi Private Viewing',
     'signature.appointment': 'Appuntamenti su invito • Consulenza riservata',
 
-    'urban.title': 'TRAVELLI LIVING',
+    'urban.title': 'LIVING',
     'urban.subtitle': 'Il comfort contemporaneo nella città che cambia.',
     'urban.cta': 'SCOPRI I PROGETTI',
     'urban.section.title': 'I Nostri Complessi',
@@ -175,10 +175,10 @@ const translations = {
     'urban.project.cta': 'SCOPRI IL PROGETTO',
     'urban.visit.cta': 'PRENOTA UNA VISITA',
 
-    'collection.signature.title': 'TRAVELLI\nPRESTIGE',
+    'collection.signature.title': 'PRESTIGE',
     'collection.signature.desc': "L'arte dell'abitare. Progetti unici, senza compromessi.",
     'collection.signature.cta': 'Scopri Prestige',
-    'collection.urban.title': 'TRAVELLI\nLIVING',
+    'collection.urban.title': 'LIVING',
     'collection.urban.desc': "L'evoluzione del vivere contemporaneo. Smart, connesso, essenziale.",
     'collection.urban.cta': 'Scopri Living',
 
@@ -400,13 +400,13 @@ const translations = {
     'footer.legal': 'Legal Notes',
     'footer.vat': 'VAT ID',
 
-    'signature.title': 'TRAVELLI PRESTIGE',
+    'signature.title': 'PRESTIGE',
     'signature.subtitle': 'The Pinnacle of Living.',
     'signature.intro': 'The Prestige collection represents absolute excellence in luxury real estate. Iconic projects that redefine the concept of exclusive living.',
     'signature.cta': 'Request Private Viewing',
     'signature.appointment': 'By invitation only • Confidential consultation',
 
-    'urban.title': 'TRAVELLI LIVING',
+    'urban.title': 'LIVING',
     'urban.subtitle': 'Contemporary comfort for the changing city.',
     'urban.cta': 'DISCOVER PROJECTS',
     'urban.section.title': 'Our Developments',
@@ -422,10 +422,10 @@ const translations = {
     'urban.project.cta': 'DISCOVER THE PROJECT',
     'urban.visit.cta': 'BOOK A VISIT',
 
-    'collection.signature.title': 'TRAVELLI\nPRESTIGE',
+    'collection.signature.title': 'PRESTIGE',
     'collection.signature.desc': 'The art of living. Unique projects, without compromise.',
     'collection.signature.cta': 'Discover Prestige',
-    'collection.urban.title': 'TRAVELLI\nLIVING',
+    'collection.urban.title': 'LIVING',
     'collection.urban.desc': 'The evolution of contemporary living. Smart, connected, essential.',
     'collection.urban.cta': 'Discover Living',
 
