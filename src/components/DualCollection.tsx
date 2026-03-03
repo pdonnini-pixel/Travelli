@@ -25,19 +25,6 @@ export default function DualCollection() {
   const prestigeImage = prestigeProject?.image_url || 'https://i.postimg.cc/K8fqs7DT/Travelli_home_signature.jpg';
   const urbanImage = urbanProject?.image_url || 'https://i.postimg.cc/c17Qmxmx/Travelli_Rosai_Urban.jpg';
 
-  if (contentLoading || projectsLoading) {
-    return (
-      <section className="grid md:grid-cols-2 min-h-[60vh] md:min-h-screen bg-[#1A1A1A]">
-        <div className="flex items-center justify-center">
-          <div className="w-12 h-12 border-4 border-[#A68966]/30 border-t-[#A68966] rounded-full animate-spin" />
-        </div>
-        <div className="flex items-center justify-center bg-[#F2F2F2]">
-          <div className="w-12 h-12 border-4 border-[#A68966]/30 border-t-[#A68966] rounded-full animate-spin" />
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section ref={ref} className="grid md:grid-cols-2 min-h-[60vh] md:min-h-screen">
       <motion.div

@@ -16,16 +16,6 @@ export default function Statement() {
     return language === 'en' && item.content_en ? item.content_en : item.content_it;
   };
 
-  if (loading) {
-    return (
-      <section className="bg-[#1A1A1A] py-16 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto flex justify-center">
-          <div className="w-12 h-12 border-4 border-[#A68966]/30 border-t-[#A68966] rounded-full animate-spin" />
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section ref={ref} className="bg-[#1A1A1A] py-16 md:py-32 px-6">
       <div className="max-w-5xl mx-auto">

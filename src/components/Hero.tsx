@@ -13,16 +13,6 @@ export default function Hero() {
     return language === 'en' && item.content_en ? item.content_en : item.content_it;
   };
 
-  if (loading) {
-    return (
-      <section id="home" className="relative min-h-[60vh] md:h-screen w-full overflow-hidden bg-[#1A1A1A]">
-        <div className="relative min-h-[60vh] md:h-screen flex items-center justify-center">
-          <div className="w-12 h-12 border-4 border-[#A68966]/30 border-t-[#A68966] rounded-full animate-spin" />
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section id="home" className="relative min-h-[60vh] md:h-screen w-full overflow-hidden">
       <div
