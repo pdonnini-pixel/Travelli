@@ -28,8 +28,8 @@ export interface PageContent {
   id: string;
   page: string;
   section: string;
-  key: string;
-  content: string;
+  content_key: string;
+  content_it: string;
   content_en?: string;
   order_index: number;
 }
@@ -104,7 +104,7 @@ export function usePageContent(page: string) {
 
         const contentMap: Record<string, PageContent> = {};
         data?.forEach((item) => {
-          contentMap[item.key] = item;
+          contentMap[item.content_key] = item;
         });
 
         setContent(contentMap);

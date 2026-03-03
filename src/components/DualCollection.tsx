@@ -16,7 +16,7 @@ export default function DualCollection() {
   const getContent = (key: string, fallback: string) => {
     const item = content[key];
     if (!item) return fallback;
-    return language === 'en' && item.content_en ? item.content_en : item.content;
+    return language === 'en' && item.content_en ? item.content_en : item.content_it;
   };
 
   const prestigeProject = projects.find(p => p.collection === 'prestige' && p.is_featured);
