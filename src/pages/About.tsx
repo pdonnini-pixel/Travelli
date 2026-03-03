@@ -168,6 +168,104 @@ export default function About() {
       </section>
 
       <section className="py-24 px-6 lg:px-12 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="flex items-center justify-center mb-6">
+              <div className="h-px w-16 bg-[#A68966] mr-4" />
+              <span className="text-sm tracking-widest uppercase text-[#A68966]">
+                LEADERSHIP
+              </span>
+              <div className="h-px w-16 bg-[#A68966] ml-4" />
+            </div>
+            <h2
+              className="text-5xl md:text-6xl font-bold text-[#1A1A1A] mb-6"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              La Famiglia Travelli
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Un organico di 50 dipendenti diretti dedicati all'eccellenza
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-gradient-to-br from-[#A68966]/5 via-white to-white p-8 rounded-xl border-2 border-[#A68966]/30 text-center shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-[#A68966] to-[#8B7355] rounded-full flex items-center justify-center ring-4 ring-[#A68966]/20">
+                <Users className="w-16 h-16 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#1A1A1A] mb-2">
+                {t('method.board.roberto.name')}
+              </h3>
+              <p className="text-[#A68966] font-bold mb-4 tracking-wider uppercase text-sm">
+                {t('method.board.roberto.title')}
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                {t('method.board.roberto.desc')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-gradient-to-br from-[#A68966]/5 via-white to-white p-8 rounded-xl border-2 border-[#A68966]/30 text-center shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-[#A68966]/20">
+                <img
+                  src="https://i.postimg.cc/C5rFH0yK/Enrico-Travelli.jpg"
+                  alt="Enrico Travelli"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-[#1A1A1A] mb-2">
+                {t('method.board.enrico.name')}
+              </h3>
+              <p className="text-[#A68966] font-bold mb-4 tracking-wider uppercase text-sm">
+                {t('method.board.enrico.title')}
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                {t('method.board.enrico.desc')}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-gradient-to-br from-[#A68966]/5 via-white to-white p-8 rounded-xl border-2 border-[#A68966]/30 text-center shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-[#A68966] to-[#8B7355] rounded-full flex items-center justify-center ring-4 ring-[#A68966]/20">
+                <Award className="w-16 h-16 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#1A1A1A] mb-2">
+                {t('method.board.elisa.name')}
+              </h3>
+              <p className="text-[#A68966] font-bold mb-4 tracking-wider uppercase text-sm">
+                {t('method.board.elisa.title')}
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                {t('method.board.elisa.desc')}
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 px-6 lg:px-12 bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -212,8 +310,8 @@ export default function About() {
               className="bg-white p-8 rounded-xl shadow-lg text-center"
             >
               <div className="text-5xl font-bold text-[#A68966] mb-4">50</div>
-              <div className="text-xl font-semibold text-[#1A1A1A] mb-2">Professionisti</div>
-              <p className="text-gray-600">Team interno dedicato</p>
+              <div className="text-xl font-semibold text-[#1A1A1A] mb-2">Dipendenti Diretti</div>
+              <p className="text-gray-600">Team interno stabile e dedicato</p>
             </motion.div>
 
             <motion.div
