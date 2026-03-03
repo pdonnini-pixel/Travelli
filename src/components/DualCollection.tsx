@@ -25,10 +25,6 @@ export default function DualCollection() {
   const prestigeImage = prestigeProject?.image_url || 'https://i.postimg.cc/D0pKqVpG/il-pratello.jpg';
   const urbanImage = urbanProject?.image_url || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop';
 
-  if (projectsLoading || contentLoading) {
-    return null;
-  }
-
   return (
     <section ref={ref} className="grid md:grid-cols-2 min-h-screen">
       <motion.div
