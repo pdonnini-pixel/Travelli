@@ -46,7 +46,7 @@ export default function DualCollection() {
         <div className="relative h-full flex flex-col justify-center px-12 lg:px-20 py-24">
           <div className="max-w-lg">
             <h3 className="text-5xl lg:text-6xl font-bold text-white mb-6 whitespace-pre-line" style={{ fontFamily: "'Playfair Display', serif" }}>
-              {getContent('signature_title', 'Prestige\nCollection')}
+              {getContent('signature_title', 'PRESTIGE')}
             </h3>
             <p className="text-xl text-white/80 mb-6 leading-relaxed">
               {getContent('signature_desc', 'Lusso senza compromessi, dove ogni dettaglio è curato per offrire un\'esperienza abitativa esclusiva')}
@@ -87,7 +87,7 @@ export default function DualCollection() {
         <div className="relative h-full flex flex-col justify-center px-12 lg:px-20 py-24">
           <div className="max-w-lg">
             <h3 className="text-5xl lg:text-6xl font-bold text-[#1A1A1A] mb-6 whitespace-pre-line" style={{ fontFamily: "'Playfair Display', serif" }}>
-              {getContent('urban_title', 'Urban\nFlow')}
+              {getContent('urban_title', 'LIVING')}
             </h3>
             <p className="text-xl text-gray-800 mb-6 leading-relaxed">
               {getContent('urban_desc', 'Vita contemporanea nel cuore della città, progettata per chi cerca dinamismo e comfort')}
